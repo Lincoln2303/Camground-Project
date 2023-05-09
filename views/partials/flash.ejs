@@ -1,0 +1,31 @@
+<!--                    XXXVIII. FLASH SUCCESS PARTIAL               -->
+
+<!-- XXXVIII.03. We have to add a logic: -->
+<!-- AFTER: We can also include this file to boilerplate.js with the other partials (XXXVIII.04.) -->
+<!-- NOTE: NOTE: alert only pops up, if there was a success, plus it isn't empty (has a length) -->
+<% if(success && success.length ) { %> 
+<!-- XXXVIII.01. First we make a div: (NOTE: with a bootstrap class "alert") -->
+<!-- NOTE: role is set for accessibility reasons! -->
+<!-- EXTRE: We have to add additional bootstrap classes -->
+<div class="alert alert-success alert-dismissible fade show " role="alert">
+    <!-- XXXVIII.02. Here display our success variable: -->
+    <!-- NOTE: We only want this to show up in page, if everything went great -->
+    <%= success %>
+    <!-- XXXVIII.05. We add a bootstrap button: (NOTE: To dismiss the message) -->
+    <!-- AFTER: Now we can add success message to our routes in campground.js (XXXVIII.06.) -->
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% }  %>
+
+<!--                    XXXIX. FLASH ERROR PARTIAL               -->
+
+<!-- XXXIX.01. We copy the logic below, and change "success" to "error" -->
+<!-- AFTER: We add error flash message to show route in campgrounds.js (XXXIX.02.) -->
+<% if(error && error.length ) { %> 
+    <div class="alert alert-danger alert-dismissible fade show " role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+ <% }  %>
+
+

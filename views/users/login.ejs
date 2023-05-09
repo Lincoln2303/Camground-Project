@@ -1,0 +1,47 @@
+<!-- XLIX.03. We're duplicating the the register template and copy it here: -->
+<!-- NOTE: Change "register" in the form to "login" (check after, if it works!) -->
+<!-- AFTER: We're doing the post route in routes/users.js (XLIX.04.) -->
+<% layout('layouts/boilerplate') %>
+
+<!--                    XC. STYLING LOGIN FORM                  -->
+<!-- XC.01. We simply style it, by adding bootstrap: (NOTE: From Colt => It'll be responsive) -->
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row flex-fill">
+        <div class="col-6 offset-md-3 col-xl-4 offset-xl-4">
+            <!-- XCI.02. Make sure you're using updated Bootstrap, and addinc card class: -->
+            <div class="card">
+            <div class="card-shadow">
+                <!-- XCI.03. Adding some fancy stuff with image: -->
+                <img src="https://images.unsplash.com/photo-1571863533956-01c88e79957e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"  alt="" class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Login</h1>
+                    <form action="/login" method="POST" class="validated-form" novalidate >
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <!-- XCI.04. Adding "autofocus" with bootstrap: (NOTE: This automatically clicks on username input) -->
+                            <input class="form-control" type="text" name="username" id="username" required autofocus>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input class="form-control" type="password" name="password" id="password" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <!-- XCI.05. Adding btn-block (+ div to make this work): (NOTE: So the button goes all the way!) -->
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success btn-block">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

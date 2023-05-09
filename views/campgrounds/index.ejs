@@ -1,0 +1,78 @@
+<!-- IV.04. We create our index template (check, if we can see it at the first place) -->
+<!-- IX.02. Adding layout to ejs: (NOTE: This is how we are passing this file through and use it in boilerplate as "body") -->
+<% layout('layouts/boilerplate') %> 
+<!--    * COMMENTING OUT CODE BELOW *   -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campgrounds</title>
+</head>
+<body> -->
+<!--                    LXXXIII. ADDING EARTHQUAKE CLUSTER MAP -->
+<!-- LXXXIII.NOTE: We want to render Earthquake Cluster Map from Mapbox -->
+<!-- LXXXIII.01. First we add a div with the map at the top (NOTE: We're following codes from Mapbox DOCS) -->
+<!-- AFTER: We're copy-pasting js (from DOCS) to /javascripts/  -->
+<div id="cluster-map"></div>
+    <h1>All Campgrounds</h1>
+    <!-- VI.09. Button for creating new campground: -->
+    <!-- XCIII. NOTE: By now we can comment this out: -->
+    <!-- <a href="/campgrounds/new"><button>Add Campground</button></a> -->
+    <!-- IV.05. We start simple with ul and iterate all our campgrounds -->
+    <!-- <ul>
+        < for (let campground of campgrounds){ %>
+        <li><a href="/campgrounds/< campground._id %>">< campground.title %></a></li>
+        < } %> 
+    </ul> -->
+    <!--                XIV. STYLING INDEX TEMPLATE              -->
+    <!-- XIV.01. Upgrading campgrounds with bootstrap card (NOTE: COMMENT OUT THE <ul> ABOVE!) -->
+    <% for (let campground of campgrounds){ %>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <!--                    LXXXI. FIXING OUR SEEDS BUG                         -->
+                    <!-- LXXXI.01. We add on a boolean: (NOTE: For checking, if there's any length) -->
+                    <!-- NOTE: If there's anything in the images array, we'll display the first image  -->
+                    <% if (campground.images.length) { %> 
+                    <!-- LXXI.02. Updating the image source: (NOTE: [0].url refers to the first picture to show in index)-->
+                    <!-- AFTER: We have to add "geometry" to our seeds/index.js (LXXIX.03.) -->
+                    <img crossorigin="anonymous" class="img-fluid" src="<%= campground.images[0].url %>" alt="">
+                    <% } else { %>
+                    <img crossorigin="anonymous" class="img-fluid" src="https://res.cloudinary.com/dxxk0lqln/image/upload/v1652528348/YelpCamp/hjq0bx5vwi0csfu3auw5.jpg" alt="">
+                    <% } %> 
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= campground.title %></h5>
+                        <!-- LXXXVIII.04. Testing: (NOTE: Adding campground.properties.popUpMarkup => Now we should see that in all campgrounds ) -->
+                        <!-- NOTE: This isn't included on the server-side though, because by default mongoose doesn't include virtuals when we're converting a document to JSON -->
+                        <!-- AFTER: So, if we want to make this work, we have to set up an option in /model/campground.js (LXXXVIII.05.) -->
+                        <!-- <h5 class="card-title"><= campground.properties.popUpMarkup %></h5> -->
+                        <p class="card-text"><%= campground.description %></p>
+                        <p class="card-text">
+                            <small class="text-muted"><%= campground.location %></small>
+                        </p>
+                        <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">View <%= campground.title %></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+<!-- </body>
+</html> -->
+<!-- LXXXIII.04. We include the Mapbox access key in a script: -->
+<!-- AFTER: We're adding mapToken to mapboxgl.accessToken, in clusterMap.js (LXXXIII.05.) -->
+<script>
+    const mapToken = '<%- process.env.MAPBOX_TOKEN  %>'; 
+    // LXXXV.03. Adding campgrounds here: (NOTE: So we can refer it in our clusterMap.js)
+    // NOTE: This isn't gonna work, because everything is located under the key of "features", so we have to include it in an object
+    const campgrounds = {features: <%- JSON.stringify(campgrounds) %>};
+</script>
+<!-- LXXXIII.03. Including our clusterMap script: -->
+<!-- AFTER: We're updating by using our access token above (from .env) => It will change, whenever our access token has changes -->
+<script src="/javascripts/clusterMap.js"></script>
+
+
+

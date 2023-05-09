@@ -1,0 +1,79 @@
+<!-- XLII.06. Basic template for rendering register form -->
+<!-- XLII.07. More like we're adding the layout: (NOTE: So we have bootstrap, and basic scripts) -->
+<% layout('layouts/boilerplate') %>
+<!-- <h1>Register</h1> -->
+<!-- XLII.08. Then we add our form: (NOTE: We add bootstrap class, plus novalidate)-->
+<!-- NOTE: When we're done with it, check if validation, and the form works in the browser! -->
+<!-- AFTER: Set up the post route in users.js (XLII.09.) -->
+<!-- <form action="/register" method="POST" class="validated-form" novalidate >
+    <div class="mb-3">
+        <label class="form-label" for="username">Username</label>
+        <input class="form-control" type="text" name="username" id="username" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" type="email" name="email" id="email" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password" required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <button class="btn btn-success">Register</button>
+</form> -->
+
+<!--                    XCII. STYLING REGISTER FORM                  -->
+
+<!-- XCII. NOTE: JUST COMMENT OUT THE OLD ABOVE! -->
+
+<!-- XCII.01. We copy styled codes from login.ejs: (NOTE: Change the labels, and inputs to register)-->
+<!-- AFTER: We're styling also new.ejs a bit (XCII.02.) -->
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row flex-fill">
+        <div class="col-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card">
+            <div class="card-shadow">
+                <img src="https://images.unsplash.com/photo-1571863533956-01c88e79957e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"  alt="" class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">Register</h1>
+                    <form action="/register" method="POST" class="validated-form" novalidate >
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input class="form-control" type="text" name="username" id="username" required autofocus>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="email">Email</label>
+                            <input class="form-control" type="email" name="email" id="email" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input class="form-control" type="password" name="password" id="password" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success btn-block">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+

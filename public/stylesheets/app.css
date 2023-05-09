@@ -1,0 +1,14 @@
+/*                  XCIII. REMOVING INLINE MAP STYLES                   */
+/*  XCIII.01. We're styling the id "cluster-map: */
+#cluster-map {
+    width: 100%;
+    height: 500px ;
+}
+
+/* XCIII.02. We do the same thing with the regular map: */
+/* AFTER: We have to include this stylesheet to our boilerplate.ejs (XCIII.03.) */
+#map {
+    width: 100%;
+    height: 300px;
+}
+

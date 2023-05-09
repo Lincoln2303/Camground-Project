@@ -1,0 +1,66 @@
+/*                  XC. ADDITIONAL HOME PAGE STYLING                     */
+
+/* XC. NOTE: We are going to add some more styling to home page */
+
+/* LXXXIX.07. Styling the body: */
+body {
+    height: 100vh;
+    /* XC.01. First we add a pictrue to the background: */
+    /* NOTE: background-image is styling the image => Check it out with, and without those codes */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1559521783-1d1599583485?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    /* XC.02. Setting size and position for the background: */
+    /* AFTER: Below we're styling our nav links (XC.03.) */
+    background-size: cover;
+    background-position: center;
+    /* XC.07. Adding text-shadow, and box-shadow: */
+    /* AFTER: Removing box-shadow on the button below (XC.08.) */
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+/* LXXXIX.05. First we add our cover-container bootstrap class, and modify it: */
+/* AFTER: We're adding <main> tag to home.ejs, and adding content (LXXXIX.06.) */
+.cover-container {
+    max-width: 60vw ;
+}
+
+/* XC.03. Styling nav-links */
+.nav-link {
+    /* XC.04. Adding padding, font-weight, color, and margin-left : */
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 1rem;
+    /* XC.05. We make each links a border at the bottom: (NOTE: When we hover over, it will display) */
+    border-bottom: 0.25rem solid transparent ;
+}
+
+/* XC.10. Adding max-width to the class cover-container:  */
+.cover-container {
+    max-width: 60vw;
+  }
+
+/* XC.06. Styling, when we hover over the links: (NOTE: We set border-bottom to be that transparent white) */
+/* AFTER: We're giving box-shadow to the body (XC.07.) */
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.75);
+    border-bottom-color: rgba(255, 255, 255, 0.75) ;
+}
+
+/* XC.09. We're adding white color to active nav-link: */
+.nav-link.active {
+    color: white;
+    border-bottom-color: white;
+}
+
+/* XC.08. Styling button: */
+/* NOTE: Trick here is that we can style it at the same time, when we hover it! */
+.btn-secondary, .btn-secondary:hover{
+    color: #333;
+    text-shadow: none;
+}
+
+
+
+
