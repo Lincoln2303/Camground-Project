@@ -90,7 +90,8 @@ map.on('load', () => {
     });
  
 map.on('click', 'unclustered-point', (e) =>  {
-    const { popUpMarkup } = e.features[0].properties.popUpMarkup; 
+//    const { popUpMarkup } = e.features[0].properties.popUpMarkup;
+    const { popUpMarkup } = e.features[0].properties;
     const coordinates = e.features[0].geometry.coordinates.slice();
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;

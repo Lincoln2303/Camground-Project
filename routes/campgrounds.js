@@ -16,7 +16,7 @@ router.route('/')
 router.get('/new', isLoggedIn, campgrounds.rednerNewForm);
 
 router.route('/:id')
-    .get(catchAsync(campgrounds.showCampground)) // LXXII.02. Adding upload.array('image') middleware: (AFTER: Change edit form)
+    .get(catchAsync(campgrounds.showCampground))
     .put(isLoggedIn, isAuthor, upload.array('image'), validateCampground, catchAsync(campgrounds.updateCampground))
     .delete(isLoggedIn, isAuthor, catchAsync(campgrounds.deleteCampground))
 

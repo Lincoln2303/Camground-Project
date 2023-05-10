@@ -1,11 +1,7 @@
-<!-- LXXIII. NOTE: MY ORIGINAL CODE HAS BEEN MOVED TO Savings.txt => THIS IS FROM COLT'S CODE -->
 <% layout('layouts/boilerplate')%>
 <link rel="stylesheet" href="/stylesheets/stars.css">
 <div class="row">
     <div class="col-6">
-        <!-- LXXIX.03. Adding our map: (NOTE: From Mapbox DOCS)-->
-        <!-- AFTER: We move our script at the bottom to /javascripts/showPageMap.js (LXXIX.04) COMMENT OUT THE BOTTOM ONE -->
-        <!-- <div id="map" style="width: 400px; height: 300px;"></div> -->
         <div id="campgroundCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <% campground.images.forEach((img, i) => {  %>
@@ -52,15 +48,10 @@
 
     </div>
     <div class="col-6">
-        <!-- LXXXIII. EXTRA: Moving the map to the other col (COMMENT OUT AOBVE!)-->
         <div id='map'></div>
         <% if(currentUser){ %>
         <h2>Leave a Review</h2>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
-            <!-- <div class="mb-3">
-                <label class="form-label" for="rating">Rating</label>
-                <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating">
-            </div> -->
             <fieldset class="starability-basic">
                 <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked
                     aria-label="No rating." />
@@ -92,7 +83,6 @@
                 <p class="starability-result" data-rating="<%=review.rating%>">
                     Rated: <%= review.rating %> stars
                 </p>
-                <!-- <h6 class="card-subtitle mb-2 text-muted">By <%= review.author.username%></h6> -->
                 <p class="card-text">Review: <%= review.body %></p>
                 <%  if( currentUser && review.author.equals(currentUser._id))  {%>
                 <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
@@ -104,32 +94,10 @@
         <% } %>
     </div>
 </div>
-<!-- LXXIX.04. COMMENTING OUT AND MOVE IT INTO /javascripts/showPageMap.js -->
-<!-- LXXIX.02. We paste the Mapbox script here: (NOTE: Add process.env with  the access token ) -->
-<!-- AFTER: We are adding a <div> with the map at the top (LXXIX.03.) -->
-<!-- <script>
-    mapboxgl.accessToken = '<- process.env.MAPBOX_TOKEN %>';
-    const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'map box://styles/mapbox/streets-v11', //stylesheet location
-        centre: [-74,5, 40], // starting position [lng, lat]
-        room: 9 // starting zoom
-    });
- </script> -->
-
-<!-- LXXIX.06. Adding a script: (NOTE: With our access token that we can use in our showPageMap.js file) -->
 <script>
-    // LXXIX.07. We save it to a variable:
-    // NOTE: So this will run first as ejs, and then we can access that in our script, if we reference that variable
-    // AFTER: We add mapToken to mapboxgl.accessToken in our showPageMap.js (LXXIX.08.)
     const mapToken = '<%- process.env.MAPBOX_TOKEN  %>';
-    // LXXX.02. Setting campground:
-    // AFTER: We go to our showPageMap file again and change the center (LXXX.03.)
     const campground = <%- JSON.stringify(campground) %>;
 </script>
 
-<!-- LXXIX.05. Including/importing showPagaMap.js: -->
-<!-- NOTE: So far there's a problem here, we're not able to use those variables (in js file) that we're using before  -->
-<!-- AFTER: For fixing the above mentioned problem we have to get our access token (from somewhere from an ejs file) to our js file, so we add a script above  (LXXIX.06.) -->
 <script src="/javascripts/showPageMap.js"></script>
 

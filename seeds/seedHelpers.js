@@ -1,8 +1,3 @@
-// III. Adding random descriptors and places:
-// NOTE: We are combining them to make new names for campgrounds.
-// III.10. We have to export descriptors and places:
-// AFTER: We have to import them in seeds/index.js (III.11.)
-// const descriptors = [ => COMMENT IT OUT!
 module.exports.descriptors = [
     'Forest',
     'Ancient',

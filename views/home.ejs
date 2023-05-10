@@ -1,5 +1,3 @@
-<!-- I.04. Creating a basic home template (for testing): -->
-<!-- AFTER: We have to set the view engine in app.js (I.05.) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <!-- LXXXIX.02. Including bootstrap css: -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- LXXXIX.05. Adding our home stylesheet -->
     <link rel="stylesheet" href="/stylesheets/home.css ">
 </head>
-<!--                LXXXIX. STYLING HOME PAGE                    -->
-<!--LXXXIX.03. Adding Colt's code: (NOTE: This is just copy-pastse )  -->
-<!-- AFTER: We have to render it after in a route, in app.js (LXXXIX.04.) -->
 <body class="d-flex text-center text-white bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
@@ -23,8 +16,6 @@
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                     <a class="nav-link" href="/campgrounds">Campgrounds</a>
-                    <!-- LXXXIX.04. We're adding ejs logic here: (NOTE: If there isn't any currentUser... ) -->
-                    <!-- AFTER: We do some css on our own, in /stylesheets/home.css, and adding a link to <head> (LXXXIX.05.)-->
                     <% if(!currentUser) { %>
                     <a class="nav-link" href="/login">Login</a>
                     <a class="nav-link" href="/register">Register</a>
@@ -34,8 +25,6 @@
                 </nav>
             </div>
         </header>
-    <!-- LXXXIX.06. Adding <main>, with some content : -->
-    <!-- AFTER: We go back to our home.css and add a body tag (LXXXIX.07.) -->
     <main class="px-3">
             <h1>YelpCamp</h1>
             <p class="lead"> Welcome to YelpCamp! <br> Jump right in and explore our many campgrounds. <br>
@@ -51,8 +40,6 @@
     
     </div>
      
-    <!-- LXXXIX.01. First we have to include bootsrap JS to the bottom: (NOTE: from boilerplate.ejs) -->
-    <!-- AFTER: Same thing with bootstrap css at the head (LXXXIX.02.) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>

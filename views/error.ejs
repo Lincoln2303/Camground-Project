@@ -1,20 +1,7 @@
-<!--                    XXII. DEFINING ERROR TEMPLATE                -->
-
-<!-- XXII.02. We have to add our layout from boilerplate: (NOTE: For adding the bootstrap styles) -->
 <% layout('layouts/boilerplate') %>
 
-<!-- XXII.01. We are adding an alert from bootsrap: -->
-<!-- AFTER: Now in our error handler in app.js instead of res.send(message), we can res.render(error) (XXII.03.) -->
 <div class="row">
     <div class="col-6 offset-3">
-        <!-- <div class="alert alert-danger " role="alert"> -->
-            <!-- XXII.05. We are dynamically adding the error message: (NOTE: We have to add style (from Udemy Q&A)) -->
-            <!-- <h4 class="alert-heading" style="word-break: break-word;"><%= err.message  %></h4> -->
-            <!-- XXII.06. For development purposes, we want to include the stack trace: (NOTE: We can access err.stack) -->
-            <!-- NOTE: In client-side this isn't gonna work, so we have to add "styles" and "pre" to make it work! -->
-            <!-- <pre style="white-space: pre-wrap; word-break: break-word;"><%= err.stack %></pre> 
-        </div> -->
-        <!-- XCVIII. UPDATED ERROR -->
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading"><%=err.message%></h4>
             <% if (process.env.NODE_ENV !== "production") { %>

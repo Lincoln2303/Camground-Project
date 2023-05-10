@@ -1,60 +1,11 @@
-<!-- VI.02. Creating a template for new page -->
-<!-- IX.02. Adding layout to ejs: (NOTE: This is how we are passing this file through and use it in boilerplate as "body") -->
 <% layout('layouts/boilerplate') %>
-<!--    * COMMENTING OUT CODE BELOW *   -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Campground</title>
-</head>
-<body> -->
-    <!-- <h1>New Campground</h1> -->
-    <!-- VI.03. We are making a form for new campground -->
-    <!-- AFTER: We have to set up our end point and post route in app.js (VI.04.) -->
-    <!-- <form action="/campgrounds" method="POST">
-        <div>
-            <label for="title">Title</label>
-            <!-- NOTE: the input name is grouped under "campground" (everything in the request body is going to be stored in campground ) -->
-            <!-- <input type="text" name="campground[title] " id="title">
-        </div>
-        <div>
-            <label for="location">Location</label>
-            <input type="text" name="campground[location]" id="location">
-        </div>
-        <button>Add Campground</button>
-    </form>
-    <a href="/campgrounds"><button>Back to Campgrounds</button></a> -->
-<!-- </body>
-</html> -->
-
-<!--                XVIII. CLIENT-SIDE FORM VALIDATION -->
-
-<!-- XVIII.NOTE: We are going to do the form validation using bootstrap attributes: "required" and "novalidation" (this tells the browser not to validate the form, so bootstrap can take over instead of the native browser validation). Also we have to add some js as well!  -->
-<!-- XVIII.01. In our form below we are adding "required" attribute to all inputs, and "novalidate" to the form -->
-<!-- AFTER: In order to make this work, we have use some js, see bottom of the page (XVIII.02.) NOTE: This is going to prevent us from submitting the form, when things are invalid. We can just copy it from the bootsrap docs! -->
-
-<!--                XV. STYLING NEW TEMPLATE -->
-
-<!-- XV.01. Adding bootstrap to our form -->
-<!-- NOTE: We are upgrading the previous one (if you don't get something read the notes above!) -->
 <div class="row">
     <h1 class="text-center">New Campground</h1>
         <div class="col-md-6 offset-md-3">
-            <!--                    LXVI. ADDING MULTER MIDDLEWARE -->
-            <!-- LXVI.01. First step is setting enctype to "multipart/form-data" in the form -->
-            <!-- AFTER: We can go and an input with a file below (LXVI.02.) - COMMMENT OUT IMAGE INPUT -->
-            <!-- XVIII.03. Addinc class="validated-form": (NOTE: to connect it with the bootstrap js. Then we should check, if it works!)-->
-            <!-- AFTER: We can make it a bit more fancy by adding div with "valid-feedback" for each sectioin (XVIII.04.) -->
             <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
-                    <!-- NOTE: the input name is grouped under "campground" (everything in the request body is going to be stored in campground ) -->
                     <input class="form-control" type="text" name="campground[title]" id="title" required>
-                    <!-- XVIII.04. Giving feedback: (NOTE: This pops up in case, if we didn't fill up a section, and just copy-paste it for each section)-->
-                    <!-- AFTER: The same procedure goes for edit.ejs (XVIII.06.) The form validators, and before we move the bootstrap js from the bottom into our boilerplate(XVIII.05.) -->
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -85,9 +36,6 @@
                     </div>
                 </div>
 
-                <!--                LXXIII. CUSTOMIZING FILE INPUT -->
-                <!-- XLIII.01. First we copy-paste bootstrap file input: (NOTE: Code from comments in udemy! ) -->
-                <!-- AFTER: Adding JS cdn for making this work to boilerplate.js (LXXIII.02.) -->
                 <div class="mb-3 custom-file">
                     <label for="formFileMultiple" class="form-label custom-file-label">Upload Images</label>
                     <input type="file" class="form-control" id="formFileMultiple" name="image" multiple required>
@@ -95,18 +43,7 @@
                         This campground would look much better with a picture.
                     </div>
                 </div>
-                <!-- LXVI.02. Adding input with file: (NOTE: COMMENT OUT IMAGE INPUT BELOW)-->
-                <!-- NOTE: In order to parse multipart/form-data we need to use Multer middleware  -->
-                <!-- <input type="file" name="image" id="image" multiple> -->
-                <!-- LXIX. Testing: -->
-        
-                <!-- <div class="mb-3">
-                    <label class="form-label" for="image">Image Url</label>
-                    <input class="form-control" type="text" name="campground[image]" id="image" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div> -->
+
                 <div class="mb-3">
                     <button class="btn btn-success">Add Campground</button>
                 </div>
@@ -114,31 +51,4 @@
             <a href="/campgrounds"><button>All Campgrounds</button></a>
         </div>
 </div>
-
-<!-- XVIII. MOVING THE WHOLE SCRIPT TO boilerplate.ejs (COMMENT THIS OUT) -->
-<!-- XVIII.02. Adding js from bootstrap docs, and put it into a <script>: (NOTE: To make the bootstrap validation work) -->
-<!-- AFTER: Adding class="validated-form" to our form (XVIII.03.) -->
-<!-- <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.validated-form')
-
-  // Loop over them and prevent submission: (NOTE: This is technically making an array)
-  Array.from(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
-</script> -->
-
 

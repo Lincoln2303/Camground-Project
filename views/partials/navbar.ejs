@@ -1,5 +1,3 @@
-<!-- IX.02. Creating template for navbar partial -->
-<!-- AFTER: Now we have to include it to our boilerplate (IX.03.) -->
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">YelpCamp </a>
@@ -18,11 +16,7 @@
             <a class="nav-link" href="/campgrounds/new">New Campground</a>
           </li> 
         </ul>
-        <!-- LI.03. Adding link to login, register, and logout: -->
-        <!-- NOTE: We can move it to the right side by adding "ms-auto" to class -->
-        <!-- EXTRA NOTE: Check bootstrap for making sure using the right notation  -->
         <ul class="navbar-nav ms-auto">
-          <!-- LII.03. We're adding a boolean for checking if there's a current user: -->
           <% if(!currentUser) { %> 
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>

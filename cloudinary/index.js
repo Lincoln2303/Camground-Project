@@ -15,22 +15,14 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_SECRET
 });
 
-// LXVIII.05. Next stop we're going to instantiate an instance of cloudinary storage:
-// NOTE: Now this CloudinaryStorage is configured, and has the credentials for cloudinary accout
 const storage = new CloudinaryStorage({
-    // LXVIII.07. Here we have to pass in cloudinary object: (NOTE: That we've just configured)
     cloudinary,
-    // LXVIII.08. We can specify folder: (NOTE: The folder in cloudinary, where we store things in)
-    // NOTE: We have to put these to params:
     params: {
         folder: 'YelpCamp',
-        // LXVIII.09. We can specify formats we allow:
         allowedFormats: ['jpeg', 'png', 'jpg']
     }
 });
 
-// LXVIII.10. Then we're just exporting it: (NOTE: both cloudinary instance (that we've configured), and storage)
-// AFTER: We'll require storage in routes/campgrounds.js (LXVIII.11.)
 module.exports = {
     cloudinary,
     storage
