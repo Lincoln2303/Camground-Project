@@ -1,7 +1,3 @@
-/*                  LXIV. DISPLAYING STAR RATINGS            */
-
-/* LXIV.01. First we copy star ratings from github */
-/* AFTER: Then we need to include it to our layout, but we only need it for show.ejs, so only include there (LXIV.02.) */
 .starability-result {
     position: relative;
     width: 150px;

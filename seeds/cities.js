@@ -1,4 +1,3 @@
-// III. Copying cities from Colt's github page:
 module.exports = [
     {
         city: "New York",

@@ -19,7 +19,6 @@ module.exports.descriptors = [
     'Diamond'
 ]
 
-// const places = [ => COMMENT IT OUT!
 module.exports.places = [
     'Flats',
     'Village',
