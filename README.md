@@ -42,17 +42,6 @@ This is a campground review platform built with Node.js, Express, MongoDB, and m
 - Joi
 - Axios
 
-## File Structure
-
-campground-project/
-├── app.js
-├── controllers/
-├── models/
-├── routes/
-├── views/
-└── README.md
-
-
 ## Acknowledgments
 
 - [Bootstrap](https://getbootstrap.com/) - CSS framework
